@@ -9,7 +9,7 @@
 //Step 6. When I click on the links in the table of contents it takes me to the given sections of the README. 
 
 import inquirer from "inquirer";
-const fs = require("fs");
+import fs from "fs";
 
 
 // TODO: Create an array of questions for user input
@@ -74,11 +74,13 @@ function promptUser() {
     ]);
 }
 
+promptUser();
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+//function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+//function init() {}
 
 // Function call to initialize app
-init();
+//init();
