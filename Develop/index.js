@@ -10,7 +10,7 @@
 
 import inquirer from "inquirer";
 import fs from "fs";
-
+import generateMarkdown from "./utils/generateMarkdown.js";
 
 // TODO: Create an array of questions for user input
 //const questions = [];
@@ -71,7 +71,11 @@ function promptUser() {
             name: 'email',
             message: 'What is your email address?'
         }
-    ]);
+    ])
+    .then(data => {
+        console.log(data);
+        fs.writeFileSync("./README.md",generateMarkdown(data))
+    })
 }
 
 promptUser();
