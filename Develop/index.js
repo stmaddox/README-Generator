@@ -47,13 +47,14 @@ function promptUser() {
         {
             type: 'list',
             name: 'license',
-            message: 'What license are you using?',
+            message: 'What license are you using? (Select One)',
             choices: [
                 "ISC",
                 "MIT",
                 "GNU",
                 "Apache",
-                "BSD"
+                "BSD",
+                "None"
             ]
         },
         {

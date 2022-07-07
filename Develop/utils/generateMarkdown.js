@@ -13,20 +13,42 @@ function renderLicenseBadge(license) {
   else if (license === "Apache") {
     return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
   }
-  else {
+  else if (license === BSD) {
     return "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
+  }
+  else {
+    return " "
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license === "MIT") {
+    return "https://opensource.org/licenses/MIT"
+  }
+  else if (license === "ISC") {
+    return "https://opensource.org/licenses/ISC"
+  }
+  else if (license === "GNU") {
+    return "https://www.gnu.org/licenses/gpl-3.0"
+  }
+  else if (license === "Apache") {
+    return "https://opensource.org/licenses/Apache-2.0"
+  }
+  else if (license === "BSD") {
+    return "https://opensource.org/licenses/BSD-3-Clause"
+  }
+  else {
+    return " "
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license === "MIT") {
-    return `Copyright <YEAR> <COPYRIGHT HOLDER>
+    return `Copyright 
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
     
@@ -36,7 +58,7 @@ function renderLicenseSection(license) {
     `
   } 
   else if (license === "ISC") {
-    return `Copyright <YEAR> <OWNER>
+    return `Copyright 
 
     Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
     
@@ -48,7 +70,7 @@ function renderLicenseSection(license) {
     Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.`
   }
   else if (license === "Apache") {
-    return `Copyright [yyyy] [name of copyright owner]
+    return `Copyright 
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -62,8 +84,8 @@ function renderLicenseSection(license) {
     See the License for the specific language governing permissions and
     limitations under the License.`
   }
-  else {
-    return `Copyright <YEAR> <COPYRIGHT HOLDER>
+  else if (license === BSD) {
+    return `Copyright 
 
     Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
     
@@ -74,6 +96,9 @@ function renderLicenseSection(license) {
     3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
     
     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
+  }
+  else {
+    return " "
   }
 }
 
@@ -115,6 +140,7 @@ function generateMarkdown(data) {
 ## License
 
   ${renderLicenseBadge(data.license)}
+  ${renderLicenseLink(data.license)}
   ${renderLicenseSection(data.license)}
 
 
@@ -125,7 +151,7 @@ function generateMarkdown(data) {
 ## Questions
   If you have any further questions contact me at:
 
-  GitHuh username: ${data.userName}
+  GitHub Username: ${data.userName}
 
   email: ${data.email}
 
